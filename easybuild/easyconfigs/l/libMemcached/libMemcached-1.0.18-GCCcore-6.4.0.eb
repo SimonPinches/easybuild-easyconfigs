@@ -4,9 +4,9 @@ name = 'libMemcached'
 version = '1.0.18'
 
 homepage = 'https://memcached.org'
-description = """libMemcached is an open source C/C++ client library and tools for the memcached server
- (http://danga.com/memcached). It has been designed to be light on memory usage, thread safe, and provide
- full access to server side methods."""
+description = """libMemcached is an open source C/C++ client library and tools for
+ the memcached server (http://danga.com/memcached). It has been designed to be light
+ on memory usage, thread safe, and provide full access to server side methods."""
 
 toolchain = {'name': 'GCCcore', 'version': '6.4.0'}
 
