@@ -1,0 +1,62 @@
+easyblock = 'Bundle'
+
+name = 'ToFu'
+version = '1.4.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/ToFuProject/tofu'
+description = """Tomography for Fusion."""
+
+toolchain = {'name': 'intel', 'version': '2018a'}
+
+dependencies = [
+    ('Python', '3.6.4'),
+    ('IPython', '6.4.0', versionsuffix),
+    ('matplotlib', '2.1.2', versionsuffix),
+    ('MDSplus', '7.46.1'),
+]
+
+# raise an error when auto-downloading of dependency packages is detected
+exts_download_dep_fail = True
+
+exts_defaultclass = 'PythonPackage'
+exts_list = [
+    ('docutils', '0.14', {
+        'source_urls': ['https://pypi.python.org/packages/source/d/docutils'],
+        'checksums': ['51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274'],
+    }),
+    ('Polygon3', '3.0.8', {
+        'modulename': 'Polygon',
+        'source_urls': ['https://pypi.python.org/packages/source/p/polygon3'],
+        'checksums': ['382aecaf1b550134aa71cc9c0f880a244e0ac5273e05bf898f5a6cde5bff9e2c'],
+    }),
+    ('zope.interface', '4.6.0', {
+        'source_urls': ['https://pypi.python.org/packages/source/z/zope.interface'],
+        'checksums': ['1b3d0dcabc7c90b470e59e38a9acaa361be43b3a6ea644c0063951964717f0e5'],
+    }),
+    ('DateTime', '4.3', {
+        'modulename': 'DateTime',
+        'source_urls': ['https://pypi.python.org/packages/source/d/datetime'],
+        'checksums': ['5cef605bab8259ff61281762cdf3290e459fbf0b4719951d5fab967d5f2ea0ea'],
+    }),
+    ('tofu', version, {
+        'patches': ['ToFu-1.4.0-no-git.patch', 'ToFu-1.4.0-intel.patch'],
+        'source_urls': ['https://pypi.python.org/packages/source/t/tofu'],
+        'checksums': [
+            'f572581a9440de844f25e04194d624c37382e2dc171ee164febad7b8ff8e57c5',  # tofu-1.4.0.tar.gz
+            '6aae61d5eef6b7389fdae3eaac7bc9d6e045a1e75f897209516c4f2605f14855',  # ToFu-1.4.0-no-git.patch
+            '96013dc65891eb9645ff7efed1190846b41cd837ebec0827436a8673ac4589c1',  # ToFu-1.4.0-intel.patch
+        ],
+    }),
+]
+
+modextrapaths = {'PYTHONPATH': ['lib/python%(pyshortver)s/site-packages']}
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['lib/python%(pyshortver)s/site-packages'],
+}
+
+sanity_check_commands = ["python -c 'import tofu.geom'"]
+
+moduleclass = 'tools'
