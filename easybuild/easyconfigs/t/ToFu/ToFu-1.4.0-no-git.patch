@@ -1,0 +1,23 @@
+--- tofu-1.4.0/setup.py.orig	2019-05-17 15:39:36.000000000 +0200
++++ tofu-1.4.0/setup.py	2019-05-17 15:40:49.000000000 +0200
+@@ -76,19 +76,10 @@
+ else:
+     raise Exception("Pb. with python version in setup.py file: "+sys.version)
+ 
++git_branch = None
+ if sys.version[0]=='2':
+-    git_branch = subprocess.check_output(["git",
+-                                          "rev-parse",
+-                                          "--symbolic-full-name",
+-                                          "--abbrev-ref",
+-                                          "HEAD"]).rstrip()
+     extralib = ['funcsigs']
+ elif sys.version[0]=='3':
+-    git_branch = subprocess.check_output(["git",
+-                                          "rev-parse",
+-                                          "--symbolic-full-name",
+-                                          "--abbrev-ref",
+-                                          "HEAD"]).rstrip().decode()
+     extralib = []
+ 
+ here = os.path.abspath(os.path.dirname(__file__))
