@@ -1,4 +1,4 @@
-easyblock = 'Bundle'
+easyblock = 'PythonBundle'
 
 name = 'ToFu'
 version = '1.4.0'
