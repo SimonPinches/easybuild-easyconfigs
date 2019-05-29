@@ -11,9 +11,7 @@ toolchain = {'name': 'intel', 'version': '2018a'}
 
 dependencies = [
     ('Python', '3.6.4'),
-    ('IPython', '6.4.0', versionsuffix),
     ('matplotlib', '2.1.2', versionsuffix),
-    ('MDSplus', '7.46.1'),
 ]
 
 # raise an error when auto-downloading of dependency packages is detected
