@@ -1,0 +1,36 @@
+easyblock = 'PythonBundle'
+
+name = 'cython-cmake'
+version = '0.1.0'
+
+homepage = 'https://github.com/scikit-build/cython-cmake'
+description = """
+Custom CMake rules to generate the source code 
+for a Python extension module using cython
+"""
+docurls = ['https://github.com/scikit-build/cython-cmake']
+
+toolchain = {'name': 'GCCcore', 'version': '13.2.0'}
+
+builddependencies = [
+    ('binutils', '2.40'),
+    ('hatchling', '1.18.0'),
+]
+
+dependencies = [
+    ('Python', '3.11.5'),
+    ('flit', '3.9.0'),
+]
+
+download_dep_fail = True
+use_pip = True
+sanity_pip_check = True
+
+exts_list = [
+    (name, version, {
+        'sources': ['cython_cmake-0.1.0.tar.gz'],
+        'checksums': ['445d15f7f89a04e7bf41cdcd6f3c3057fb835e25adc9922b20b0fa91093dc905'],
+    }),
+]
+
+moduleclass = 'devel'
